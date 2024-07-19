@@ -52,7 +52,6 @@ def gothic(input_img, brightness_factor=0.5, contrast_factor=1.5, glow_strength=
     r, g, b = img_gothic.split()
     g = ImageChops.multiply(g, ImageEnhance.Brightness(g).enhance(1.2))
     img_gothic = Image.merge('RGB', (r, g, b))
-    
     img_glow = img_gothic.filter(ImageFilter.GaussianBlur(radius=glow_strength))
     img_gothic = Image.blend(img_gothic, img_glow, alpha=0.3)
     
